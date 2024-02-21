@@ -40,7 +40,11 @@ dependencies {
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
     implementation("com.android.volley:volley:1.2.1")
-    implementation("com.google.code.gson:gson:2.8.9")
+    implementation("com.google.code.gson:gson:2.10")
     implementation ("org.json:json:20210307")
-    implementation ("androidx.recyclerview:recyclerview:1.2.1")
+    implementation ("androidx.recyclerview:recyclerview:1.3.2")
+
+    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.4.0")
+    implementation("com.squareup.retrofit2:converter-scalars:2.4.0")
 }
