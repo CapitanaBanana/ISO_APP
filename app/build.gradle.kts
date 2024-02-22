@@ -47,6 +47,7 @@ dependencies {
     implementation ("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-gson:2.4.0")
     implementation("com.squareup.retrofit2:converter-scalars:2.4.0")
+    implementation ("nl.dionsegijn:konfetti-xml:2.0.4")
 
 
 }

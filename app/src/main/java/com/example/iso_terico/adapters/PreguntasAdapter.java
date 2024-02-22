@@ -31,7 +31,6 @@ public class PreguntasAdapter extends RecyclerView.Adapter<PreguntasAdapter.Preg
     @Override
     public void onBindViewHolder(@NonNull PreguntasViewHolder holder, int position){
         Pregunta pos = preguntaList.get(holder.getAdapterPosition());
-        String pregunta = pos.getPregunta();
         holder.tId.setText(pos.getId());
         holder.tPregunta.setText(pos.getPregunta());
         holder.tRespuestaCorrecta.setText(pos.getRespuesta_correcta());

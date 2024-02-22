@@ -8,7 +8,10 @@
     android:layout_gravity="center_horizontal"
     tools:context=".activities.GameActivity">
 
-
+    <nl.dionsegijn.konfetti.xml.KonfettiView
+        android:id="@+id/konfettiView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -36,7 +39,6 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:background="#673AB7"
                 android:textColor="@color/white"
                 android:id="@+id/explicacion"
                 android:layout_width="match_parent"
@@ -51,18 +53,21 @@
 
                 <RadioButton
                     android:id="@+id/radioButton1"
+                    android:textColor="#673AB7"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="RadioButton" />
 
                 <RadioButton
                     android:id="@+id/radioButton2"
+                    android:textColor="#673AB7"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="RadioButton" />
 
                 <RadioButton
                     android:id="@+id/radioButton3"
+                    android:textColor="#673AB7"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:visibility="gone"
@@ -70,6 +75,7 @@
 
                 <RadioButton
                     android:id="@+id/radioButton4"
+                    android:textColor="#673AB7"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:visibility="gone"
@@ -91,7 +97,7 @@
                 android:visibility="gone"
                 android:text="Siguiente" />
 
-
         </LinearLayout>
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

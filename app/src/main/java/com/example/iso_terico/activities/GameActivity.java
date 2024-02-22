@@ -9,6 +9,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -24,9 +26,21 @@ import com.example.iso_terico.adapters.PreguntasAdapter;
 import com.example.iso_terico.models.Pregunta;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
+import java.util.concurrent.TimeUnit;
+
+import nl.dionsegijn.konfetti.core.Party;
+import nl.dionsegijn.konfetti.core.PartyFactory;
+import nl.dionsegijn.konfetti.core.Position;
+import nl.dionsegijn.konfetti.core.emitter.Confetti;
+import nl.dionsegijn.konfetti.core.emitter.Emitter;
+import nl.dionsegijn.konfetti.core.emitter.EmitterConfig;
+import nl.dionsegijn.konfetti.core.models.Shape;
+import nl.dionsegijn.konfetti.xml.KonfettiView;
+import nl.dionsegijn.konfetti.core.models.Size;
 
 public class GameActivity extends AppCompatActivity {
     private TextView textViewPregunta;
@@ -40,6 +54,7 @@ public class GameActivity extends AppCompatActivity {
     private TextView explicacion;
     private Button aceptar;
     private Button siguiente;
+    private KonfettiView konfettiView = null;
 
 
     @Override
@@ -65,6 +80,7 @@ public class GameActivity extends AppCompatActivity {
         Collections.shuffle(preguntasList);
         iniciarJuego();
 
+        konfettiView = findViewById(R.id.konfettiView);
 
     }
     public void iniciarJuego(){
@@ -102,6 +118,7 @@ public class GameActivity extends AppCompatActivity {
             RadioButton selectedRadioButton = findViewById(selectedRadioButtonId);
             if (selectedRadioButton.getText().equals(actual.getRespuesta_correcta())) {
                 Toast.makeText(this, "BIEN!", Toast.LENGTH_SHORT).show();
+                explode();
             }
             else
                 Toast.makeText(this, "MAL!", Toast.LENGTH_SHORT).show();
@@ -112,12 +129,11 @@ public class GameActivity extends AppCompatActivity {
             radioButton4.setVisibility(View.GONE);
 
             explicacion.setVisibility(View.VISIBLE);
+            aceptar.setVisibility(View.GONE);
+            siguiente.setVisibility(View.VISIBLE);
         }
         else
             Toast.makeText(this, "Debe seleccionar una respuesta!", Toast.LENGTH_SHORT).show();
-
-        aceptar.setVisibility(View.GONE);
-        siguiente.setVisibility(View.VISIBLE);
 
     }
 
@@ -127,5 +143,23 @@ public class GameActivity extends AppCompatActivity {
         iniciarJuego();
         aceptar.setVisibility(View.VISIBLE);
         siguiente.setVisibility(View.GONE);
+    }
+    public void explode() {
+        EmitterConfig emitterConfig = new Emitter(100L, TimeUnit.MILLISECONDS).max(100);
+        Drawable drawableEstrellita = getResources().getDrawable(R.drawable.estrellita);
+        Shape.DrawableShape estrellitaShape = new Shape.DrawableShape(
+                drawableEstrellita,
+                true,  // Puedes ajustar si quieres aplicar tinte o no
+                true   // Puedes ajustar si quieres aplicar alpha o no
+        );
+        konfettiView.start(
+                new PartyFactory(emitterConfig)
+
+                        .spread(360)
+                        .shapes(Arrays.asList(estrellitaShape))
+                        .colors(Arrays.asList(0xf5f242, 0xf5b342, 0xf57e42, 0xf54542))
+                        .setSpeedBetween(0f, 30f)
+                        .position(new Position.Relative(0.5, 0))
+                        .build());
     }
 }
