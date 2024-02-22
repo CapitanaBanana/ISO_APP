@@ -39,12 +39,15 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:textColor="@color/white"
                 android:id="@+id/explicacion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/rounded_corners_text_view"
+                android:text="explicacion"
+                android:textAlignment="center"
+                android:textColor="#000000"
                 android:visibility="gone"
-                android:text="explicacion" />
+                android:textSize="17dp" />
 
             <RadioGroup
                 android:id="@+id/radioGroup"
