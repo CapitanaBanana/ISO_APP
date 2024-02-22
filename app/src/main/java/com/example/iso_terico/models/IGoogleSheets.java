@@ -8,7 +8,7 @@ import retrofit2.http.Url;
 
 public interface IGoogleSheets {
     @GET
-    Call<String> getPersonas(@Url String url);
+    Call<String> getPreguntas(@Url String url);
     @POST("exec")
     Call<String> getStringRequestBody(@Body String body);
 }
