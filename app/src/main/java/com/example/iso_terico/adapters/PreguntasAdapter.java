@@ -11,16 +11,17 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.iso_terico.R;
 import com.example.iso_terico.models.Pregunta;
+import com.example.iso_terico.models.Ranking;
 
 import java.util.List;
 
 public class PreguntasAdapter extends RecyclerView.Adapter<PreguntasAdapter.PreguntasViewHolder> {
     Context context;
-    List<Pregunta> preguntaList;
+    List<Ranking> rankingList;
 
-    public PreguntasAdapter(Context context, List<Pregunta> preguntaList){
+    public PreguntasAdapter(Context context, List<Ranking> rankingList){
         this.context =context;
-        this.preguntaList = preguntaList;
+        this.rankingList = rankingList;
     }
     @NonNull
     @Override
@@ -30,22 +31,20 @@ public class PreguntasAdapter extends RecyclerView.Adapter<PreguntasAdapter.Preg
     }
     @Override
     public void onBindViewHolder(@NonNull PreguntasViewHolder holder, int position){
-        Pregunta pos = preguntaList.get(holder.getAdapterPosition());
-        holder.tId.setText(pos.getId());
-        holder.tPregunta.setText(pos.getPregunta());
-        holder.tRespuestaCorrecta.setText(pos.getRespuesta_correcta());
+        Ranking pos = rankingList.get(holder.getAdapterPosition());
+        holder.tUsuario.setText(pos.getUsuario());
+        holder.tPuntaje.setText(pos.getPuntaje());
     }
 
     @Override
-    public int getItemCount(){return preguntaList.size();}
+    public int getItemCount(){return rankingList.size();}
 
     public static class PreguntasViewHolder extends RecyclerView.ViewHolder{
-        TextView tId, tPregunta, tRespuestaCorrecta;
+        TextView tUsuario, tPuntaje;
         public PreguntasViewHolder(@NonNull View itemView){
             super(itemView);
-            tId = itemView.findViewById(R.id.id);
-            tPregunta = itemView.findViewById(R.id.pregunta);
-            tRespuestaCorrecta = itemView.findViewById(R.id.respuestaCorrecta);
+            tUsuario = itemView.findViewById(R.id.usuario);
+            tPuntaje = itemView.findViewById(R.id.puntaje);
         }
     }
 

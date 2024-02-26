@@ -2,5 +2,8 @@
 <resources>
     <array name="preloaded_fonts" translatable="false">
         <item>@font/andika_new_basic</item>
+        <item>@font/exo_2_medium</item>
+        <item>@font/public_sans_medium</item>
+        <item>@font/zeyada</item>
     </array>
 </resources>

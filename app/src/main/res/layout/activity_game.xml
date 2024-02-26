@@ -3,27 +3,77 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="#673AB7"
+    android:background="@color/mainColor"
     android:layout_height="match_parent"
     android:layout_gravity="center_horizontal"
     tools:context=".activities.GameActivity">
+
 
     <nl.dionsegijn.konfetti.xml.KonfettiView
         android:id="@+id/konfettiView"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
-    <LinearLayout
+    <RelativeLayout
+        android:gravity="center_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/correcto"
+        android:layout_width="130dp"
+        android:layout_height="40dp"
+        android:background="@drawable/rounded_corners_text_view"
+        android:ems="10"
+        android:layout_marginTop="80dp"
+        android:backgroundTint="@color/mainOscuro"
+        android:textColor="@color/white"
+        android:textSize="25dp"
+        android:inputType="text"
+        android:text="¡Correcto!"
+        android:visibility="gone"
+        android:textAlignment="center" />
+
+    <EditText
+        android:id="@+id/incorrecto"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:background="@drawable/rounded_corners_text_view"
+        android:ems="10"
+        android:layout_marginTop="80dp"
+        android:textSize="25dp"
+        android:backgroundTint="@color/mainOscuro"
+        android:textColor="@color/white"
+        android:inputType="text"
+        android:text="Incorrecto :("
+        android:visibility="gone"
+        android:textAlignment="center" />
+</RelativeLayout>
+
+<LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
         android:orientation="vertical">
 
 
-        <LinearLayout
+    <TextView
+        android:id="@+id/racha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:layout_marginLeft="30dp"
+        android:layout_marginBottom="10dp"
+        android:text="TextView"
+        android:textColor="#D1BDF6"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+    <LinearLayout
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:background="@drawable/rounded_corners_text_view"
             android:padding="10dp"
+            android:layout_gravity="center_horizontal"
             android:orientation="vertical">
 
             <TextView
@@ -31,17 +81,32 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-                android:fontFamily="sans-serif"
                 android:text="pregunta"
                 android:textAlignment="center"
-                android:textColor="#673AB7"
+                android:textColor="@color/mainColor"
                 android:textSize="25dp"
                 android:textStyle="bold" />
+
+        <TextView
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/respuestaCorrecta"
+            android:layout_width="wrap_content"
+            android:padding="5dp"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:text="respuesta"
+            android:backgroundTint="#DC8BC34A"
+            android:background="@drawable/rounded_corners_text_view"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:layout_marginBottom="5dp"
+            android:textSize="17dp" />
 
             <TextView
                 android:id="@+id/explicacion"
                 android:layout_width="match_parent"
                 android:padding="3dp"
+                android:layout_marginBottom="10dp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/rounded_corners_text_view"
                 android:text="explicacion"
@@ -57,21 +122,21 @@
 
                 <RadioButton
                     android:id="@+id/radioButton1"
-                    android:textColor="#673AB7"
+                    android:textColor="@color/mainColor"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="RadioButton" />
 
                 <RadioButton
                     android:id="@+id/radioButton2"
-                    android:textColor="#673AB7"
+                    android:textColor="@color/mainColor"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="RadioButton" />
 
                 <RadioButton
                     android:id="@+id/radioButton3"
-                    android:textColor="#673AB7"
+                    android:textColor="@color/mainColor"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:visibility="gone"
@@ -79,7 +144,7 @@
 
                 <RadioButton
                     android:id="@+id/radioButton4"
-                    android:textColor="#673AB7"
+                    android:textColor="@color/mainColor"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:visibility="gone"
